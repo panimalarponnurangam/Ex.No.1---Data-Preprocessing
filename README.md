@@ -63,7 +63,8 @@ print(df1)
 
 ![image](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/aa11b7a5-7125-4d49-9310-e8798cedc967)
 
-![image](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/25c58530-a27c-4f68-84f4-82100f906a26)
+
+
 
 
 ![image](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/9025fb6f-da94-40d3-9188-955e3e2bb58a)
