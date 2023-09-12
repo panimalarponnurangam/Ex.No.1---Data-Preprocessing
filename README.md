@@ -32,10 +32,53 @@ Normalizing the data
 Splitting the data into test and train
 
 ## PROGRAM:
-/Write your code here/
+```import pandas as pd
+df=pd.read_csv("/content/Churn_Modelling.csv")
+df.head()
+df.isnull().sum()
+df.drop(["RowNumber","Age","Gender","Geography","Surname"],inplace=True,axis=1)
+print(df)
+x=df.iloc[:,:-1].values
+y=df.iloc[:,-1].values
+print(x)
+print(y)
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+df1 = pd.DataFrame(scaler.fit_transform(df))
+print(df1)
+from sklearn.model_selection import train_test_split
+xtrain,ytrain,xtest,ytest=train_test_split(x,y,test_size=0.2,random_state=2)
+print(xtrain)
+print(len(xtrain))
+print(xtest)
+print(len(xtest))
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+df1 = sc.fit_transform(df)
+print(df1)
+```
 
 ## OUTPUT:
-/ Show the result/
+![image](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/c532e3ba-c8a8-4f1c-bea1-dc9deb43d297)
+
+![image](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/aa11b7a5-7125-4d49-9310-e8798cedc967)
+
+![image](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/25c58530-a27c-4f68-84f4-82100f906a26)
+
+
+![image](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/9025fb6f-da94-40d3-9188-955e3e2bb58a)
+
+![image](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/c4f410a1-7525-42c0-8502-2fb1a09dea79)
+
+
+![image](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/d6791751-542e-4eff-ae73-a81f5f5f0502)
+
+![image](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/aca6ab0e-35f1-418b-bf49-4b14b0ba1b39)
+
+![image](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/f7564c54-5dfe-4b37-a12b-46b94956b19a)
+
+
+
 
 ## RESULT
-/Type your result here/
+The Data preprocessing is performed over a data set successfully.
