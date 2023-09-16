@@ -24,66 +24,99 @@ Another aspect is that the data set should be formatted in such a way that more 
 
 
 ## ALGORITHM:
+```
 Importing the libraries
 Importing the dataset
 Taking care of missing data
 Encoding categorical data
 Normalizing the data
 Splitting the data into test and train
-
+```
 ## PROGRAM:
 ```
 Dveloped by:panimalar.p
 register no:212222110031
 ```
+importing libraries
 ```
 import pandas as pd
-df=pd.read_csv("/content/Churn_Modelling.csv")
-df.head()
-df.isnull().sum()
-df.drop(["RowNumber","Age","Gender","Geography","Surname"],inplace=True,axis=1)
-print(df)
-x=df.iloc[:,:-1].values
-y=df.iloc[:,-1].values
-print(x)
-print(y)
-from sklearn.preprocessing import MinMaxScaler
-scaler = MinMaxScaler()
-df1 = pd.DataFrame(scaler.fit_transform(df))
-print(df1)
-from sklearn.model_selection import train_test_split
-xtrain,ytrain,xtest,ytest=train_test_split(x,y,test_size=0.2,random_state=2)
-print(xtrain)
-print(len(xtrain))
-print(xtest)
-print(len(xtest))
+import io
 from sklearn.preprocessing import StandardScaler
-sc = StandardScaler()
-df1 = sc.fit_transform(df)
-print(df1)
+from sklearn.model_selection import train_test_split
 ```
+Reading the dataset :
+```
+df=pd.read_csv("/content/Churn_Modelling.csv", index_col="RowNumber")
+df
+```
+Dropping the unwanted Columns :
+```
+df.drop(['CustomerId'],axis=1,inplace=True)
+df.drop(['Surname'],axis=1,inplace=True)
+df.drop('Age',axis=1,inplace=True)
+df.drop('Geography',axis=1,inplace=True)
+df.drop('Gender',axis=1,inplace=True)
+df
+```
+Checking for null values :
+```
+df.isnull().sum()
+```
+Checking for duplicate values :
+```
+df.duplicated()
+```
+Describing the dataset :
+```
+df.describe()
+```
+Scaling the dataset :
+```
+scaler=StandardScaler()
+df1=pd.DataFrame(scaler.fit_transform(df))
+df1
+```
+Allocating X and Y attributes :
+```
+x=df1.iloc[:,:-1].values
+x
+y=df1.iloc[:,-1].values
+y
+```
+Splitting the data into training and testing dataset :
+```
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2)
+print(x_train)
+print(len(x_train))
+print(x_test)
+print(len(x_test))
+```
+OUTPUT:
+The dataset :
+![264971809-4602a691-ce56-4599-be28-d1dbf84c6f8f](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/0660b3fd-6b87-48f7-b2f9-34712ef4856e)
 
-## OUTPUT:
-![image](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/c532e3ba-c8a8-4f1c-bea1-dc9deb43d297)
+Dropping unwanted features :
+![264971983-a1814a51-3183-47f3-a206-ac652fb26458](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/6fdfc3c8-2043-4d10-a93c-9fe15f842f3f)
+Checking for null values :
 
-![image](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/aa11b7a5-7125-4d49-9310-e8798cedc967)
+![264972071-c0c93b29-6465-44aa-84a8-791764903a37](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/57bffd5f-b212-482b-8290-2c0de9f4c83d)
+Checking for duplication :
+![264972221-328c73bc-5773-42d8-9c0a-113749997b77](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/5b8a9aa5-d88a-45d9-a2d9-d0bed24c97b2)
+Describing the dataset :
 
+![264972304-a5b12844-69bc-45e4-a81e-369f397e74a0](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/699affbc-db6d-49f4-b4f4-d5b88a5b12d6)
+Scaling the values :
 
-
-
-
-![image](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/9025fb6f-da94-40d3-9188-955e3e2bb58a)
-
-![image](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/c4f410a1-7525-42c0-8502-2fb1a09dea79)
-
-
-![image](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/d6791751-542e-4eff-ae73-a81f5f5f0502)
-
-![image](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/aca6ab0e-35f1-418b-bf49-4b14b0ba1b39)
-
-![image](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/f7564c54-5dfe-4b37-a12b-46b94956b19a)
+![264972373-34613cc1-4229-40f4-94fe-4c40a08f725f](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/9940cba7-11df-4ab5-bc2e-848a97fc179f)
+X Features :
+![264972437-82154363-58d3-4578-b1f3-71cefd8d1fec](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/7de2666c-ab5c-4b2c-a2ce-d984de6bbcc9)
+Y Features :
+![264972629-95cff3d1-6446-4b7a-93aa-deed1cbb803d](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/af081e1b-0f2f-4f3f-9c9a-d40949adb4f6)
 
 
+Splitting the training and testing dataset :
+
+![264972713-edbdc2c9-ce14-4efb-a342-d7dd77b9f460](https://github.com/panimalarponnurangam/Ex.No.1---Data-Preprocessing/assets/121490826/6861b340-4607-48d2-8331-83c9d8df40aa)
 
 
 ## RESULT
